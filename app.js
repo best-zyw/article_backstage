@@ -15,6 +15,8 @@ var recycleRouter = require('./routes/admin/recycle');
 var photosRouter = require('./routes/admin/photos');
 var loginRouter = require('./routes/admin/login');
 var admin_login = require('./middlewares/admin_login');
+var listRouter = require('./routes/list');
+var singlePageRouter = require('./routes/singlePage');
 
 var app = express();
 
@@ -38,6 +40,8 @@ app.use('/users',admin_login(), usersRouter);
 app.use('/recycle',admin_login(), recycleRouter);
 app.use('/photos',admin_login(), photosRouter);
 app.use('/login', loginRouter);
+app.use('/list', listRouter);
+app.use('/singlePage', singlePageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
